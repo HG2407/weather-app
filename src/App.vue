@@ -21,13 +21,12 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
 
   data() {
     return  {
-      api_key: '4223e5913f82545b3c54a9bf180277be',
+      api_key:"Weather app key",
       base_url: 'http://api.openweathermap.org',
       query: '',
       weather: {},
@@ -37,11 +36,6 @@ export default {
   methods: {
     async getWeather(e) {
       if(e.key == 'Enter') {
-        // fetch(`${this.base_url}/data/2.5/weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
-        // .then(res => {
-        //   return res.json();
-        // }).then(this.setWeather);
-
         let response = await fetch(`${this.base_url}/data/2.5/weather?q=${this.query}&units=metric&APPID=${this.api_key}`);
         let json = await response.json();
         this.setWeather(json);
@@ -62,9 +56,7 @@ export default {
 
       return `${day} ${date} ${month} ${year}`;
     }
-  }
-  
-  
+  },
 }
 </script>
 
